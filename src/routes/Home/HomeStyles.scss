@@ -1,0 +1,10 @@
+.home-container {
+  width: 100%;
+  max-width: 1240px;
+  padding: 10px 0px;
+  display: flex;
+
+  @media (max-width: 1400px) {
+    padding: 10px;
+  }
+}
