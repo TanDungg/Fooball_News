@@ -67,7 +67,7 @@ const Navigate = () => {
       };
     });
     setListMenu(newData);
-    setKeyMenu('HOME');
+    setKeyMenu('home');
   }, []);
 
   const handleMenuClick = (data) => {

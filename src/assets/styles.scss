@@ -29,7 +29,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #0469b9;
+  background-color: #004030;
 
   .header-div {
     width: 100%;
@@ -46,7 +46,7 @@ header {
     font-weight: 600;
     cursor: pointer;
     width: 300px;
-    height: 150px;
+    height: 100px;
     display: flex;
     align-items: center;
     gap: 15px;
@@ -56,45 +56,46 @@ header {
       color: #fff;
     }
   }
+}
 
-  .header-navigate {
-    width: 100% !important;
-    position: relative;
-    transition: all 0.3s ease-in-out;
-
-    &-span {
-      font-size: 20px;
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    &.fixed {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
+.navigate {
+  width: 100% !important;
+  position: relative;
+  transition: all 0.3s ease-in-out;
 
   .menu-navigate {
     display: flex;
     justify-content: center;
   }
+
+  &-span {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* === MENU (ANTD OVERRIDES) === */
+/* Menu chính */
 .ant-menu {
   height: 40px;
-  color: #fff;
   font-weight: 600;
-  background-color: #0469b9;
+  color: #fff;
+  background: #004030;
   border: none !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
 
   .ant-menu-item,
   .ant-menu-item-title,
@@ -103,7 +104,7 @@ header {
     display: flex;
     align-items: center;
     font-size: 16px;
-    color: #fff;
+    color: inherit;
   }
 
   .ant-menu-item,
@@ -112,39 +113,33 @@ header {
   }
 }
 
-/* Loại bỏ hiệu ứng border-bottom */
+/* Xoá gạch dưới */
 :where(.ant-menu-light).ant-menu-horizontal > .ant-menu-item::after,
-:where(.ant-menu-light).ant-menu-horizontal > .ant-menu-submenu::after,
-:where(.ant-menu-light) > .ant-menu .ant-menu-item::after,
-:where(.ant-menu-light) > .ant-menu .ant-menu-submenu::after {
+:where(.ant-menu-light).ant-menu-horizontal > .ant-menu-submenu::after {
   border-bottom: none !important;
   box-shadow: none !important;
 }
 
-/* Hover, active, selected màu sắc */
-:where(.ant-menu-light).ant-menu-horizontal > .ant-menu-item:hover,
-:where(.ant-menu-light).ant-menu-horizontal > .ant-menu-submenu:hover,
-:where(.ant-menu-light).ant-menu-horizontal > .ant-menu-submenu > .ant-menu-submenu-item:hover,
-:where(.ant-menu-light) .ant-menu-submenu:hover .ant-menu-item:hover,
-:where(.ant-menu-light) .ant-menu-submenu:hover,
-:where(.ant-menu-light) .ant-menu-submenu:hover .ant-menu {
-  color: #ffff00 !important;
+/* Hover cho item chưa active */
+:where(.ant-menu-light).ant-menu-horizontal > .ant-menu-item:not(.ant-menu-item-selected):hover,
+:where(.ant-menu-light).ant-menu-horizontal
+  > .ant-menu-submenu:not(.ant-menu-submenu-selected):hover {
+  color: #dcd0a8 !important;
+  background: transparent !important;
 }
 
-:where(.ant-menu-horizontal) > .ant-menu-item:hover,
-:where(.ant-menu-horizontal) > .ant-menu-item-active,
-:where(.ant-menu-horizontal) > .ant-menu-submenu .ant-menu-submenu-title:hover,
-:where(.ant-menu-light) .ant-menu-submenu:hover .ant-menu-submenu-title {
-  color: #ffff00 !important;
-  background-color: transparent;
-}
-
-:where(.ant-menu-light) .ant-menu-submenu-selected > .ant-menu-submenu-title,
-:where(.ant-menu-light) > .ant-menu .ant-menu-submenu-selected > .ant-menu-submenu-title,
+/* Active */
 :where(.ant-menu-light).ant-menu-horizontal > .ant-menu-item-selected,
 :where(.ant-menu-light).ant-menu-horizontal > .ant-menu-submenu-selected {
-  color: #ffff00;
-  background-color: transparent;
+  color: #ffd700 !important;
+  background: transparent !important;
+}
+
+/* Hover khi active - giữ nguyên màu */
+:where(.ant-menu-light).ant-menu-horizontal > .ant-menu-item-selected:hover,
+:where(.ant-menu-light).ant-menu-horizontal > .ant-menu-submenu-selected:hover {
+  color: #ffd700 !important;
+  background: transparent !important;
 }
 
 /* === FOOTER === */
@@ -152,7 +147,7 @@ footer {
   width: 100%;
   height: 35px;
   padding: 15px;
-  background-color: #0469b9;
+  background-color: #004030;
   color: #fff;
   display: flex;
   align-items: center;

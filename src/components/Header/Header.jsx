@@ -25,10 +25,10 @@ const Header = () => {
             <span>My React App</span>
           </div>
         </div>
+        <div className={`navigate ${fixed ? 'fixed' : ''}`}>
+          <Navigate />
+        </div>
       </header>
-      <div className={`header-navigate ${fixed ? 'fixed' : ''}`}>
-        <Navigate />
-      </div>
     </>
   );
 };

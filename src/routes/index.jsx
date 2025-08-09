@@ -10,22 +10,21 @@ import ThongTin from './ThongTin/ThongTin';
 
 const AppRoutes = () => {
   return (
-    <div>
-      {/* <Header /> */}
-      <div className="div-container">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" replace />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/san-pham" element={<SanPham />} />
-          <Route path="/san-pham/them-moi" element={<SanPhamForm />} />
-          <Route path="/khach-hang" element={<KhachHang />} />
-          <Route path="/khach-hang/them-moi" element={<KhachHangForm />} />
-          <Route path="/thong-tin" element={<ThongTin />} />
-        </Routes>
-        <Footer />
-      </div>
-      {/* <Footer /> */}
+    <div className="div-container">
+      <Header />
+      <Routes>
+        {/* Nếu vào / → chuyển sang /home */}
+        <Route path="/" element={<Navigate to="/home" replace />} />
+
+        {/* Các route hợp lệ */}
+        <Route path="/home" element={<Home />} />
+        <Route path="/san-pham" element={<SanPham />} />
+        <Route path="/san-pham/them-moi" element={<SanPhamForm />} />
+        <Route path="/khach-hang" element={<KhachHang />} />
+        <Route path="/khach-hang/them-moi" element={<KhachHangForm />} />
+        <Route path="/thong-tin" element={<ThongTin />} />
+      </Routes>
+      <Footer />
     </div>
   );
 };
