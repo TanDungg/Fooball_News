@@ -142,16 +142,94 @@ header {
   background: transparent !important;
 }
 
+/* === MENU OVERFLOW HANDLING === */
+/* Xử lý overflow items khi màn hình nhỏ */
+.ant-menu-overflow {
+  .ant-menu-overflow-item {
+    /* Đảm bảo overflow items có thể interact được */
+    pointer-events: auto !important;
+    
+    &:hover {
+      color: #dcd0a8 !important;
+      background: transparent !important;
+    }
+  }
+}
+
+/* Submenu overflow - dropdown từ dấu ... */
+.ant-menu-submenu-popup {
+  .ant-menu {
+    background: #004030 !important;
+    border: 1px solid #004030 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+    
+    .ant-menu-item {
+      color: #fff !important;
+      
+      &:hover {
+        color: #dcd0a8 !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+      }
+      
+      &.ant-menu-item-selected {
+        color: #ffd700 !important;
+        background: rgba(255, 215, 0, 0.1) !important;
+      }
+    }
+  }
+}
+
+/* Overflow trigger (dấu ...) */
+.ant-menu-overflow-item-rest {
+  .ant-menu-submenu-title {
+    color: #fff !important;
+    
+    &:hover {
+      color: #dcd0a8 !important;
+    }
+  }
+}
+
+/* Touch device support */
+@media (hover: none) and (pointer: coarse) {
+  /* Mobile/Touch devices */
+  .ant-menu-overflow-item-rest {
+    .ant-menu-submenu-title {
+      /* Đảm bảo có thể click được trên mobile */
+      -webkit-tap-highlight-color: rgba(220, 208, 168, 0.3);
+      touch-action: manipulation;
+    }
+  }
+  
+  .ant-menu-submenu-popup {
+    /* Cải thiện hiển thị popup trên mobile */
+    .ant-menu {
+      min-width: 150px;
+      
+      .ant-menu-item {
+        padding: 12px 16px !important;
+        font-size: 16px;
+        
+        &:active {
+          color: #dcd0a8 !important;
+          background: rgba(255, 255, 255, 0.2) !important;
+        }
+      }
+    }
+  }
+}
+
 /* === FOOTER === */
 footer {
   width: 100%;
   height: 35px;
   padding: 15px;
-  background-color: #004030;
+  background-color: #4a9782;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: auto;
 }
 
 /* === PAGE CONTAINER === */
